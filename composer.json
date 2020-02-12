@@ -1,0 +1,27 @@
+{
+  "name": "zerolone/zdoc",
+  "description": "tp5.1 doc creater",
+  "version": "v1.0.0",
+  "type": "think-extend",
+  "authors": [
+    {
+      "name": "Zerolone",
+      "email": "zerolone@163.com""
+    }
+  ],
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Zerolone\\ZDoc\\": "src"
+    },
+    "files": [
+      "helper.php"
+    ]
+  },
+  "require": {},
+  "extra": {
+    "think-config": {
+      "zdoc": "config.php"
+    }
+  }
+}
