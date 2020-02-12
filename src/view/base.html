@@ -81,8 +81,8 @@ layui.use(['element', 'layer', 'form', 'code'], function () {
   });
   
   var k = {$theShowK};
-  if(tmpK > 0){
-    tmpK = $('.show' + k);
+  if(k > 0){
+    var tmpK = $('.show' + k);
     tmpK.show();
     
     $('.showK'+k).addClass('on');
