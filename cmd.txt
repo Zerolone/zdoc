@@ -1,7 +1,7 @@
 git clone https://github.com/Zerolone/zdoc.git
 cd zdoc
 git add .
-git commit -m '005'
+git commit -m '010'
 
 git push
 

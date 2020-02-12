@@ -14,6 +14,8 @@
     {block name="head"}{/block}
 </head>
 <body>
+{block name="header"}
+{/block}
 
 {block name="main"}
 <div class="layui-main site-inline">
@@ -35,19 +37,19 @@ layui.use(['element', 'layer', 'form', 'code'], function () {
       , layer = layui.layer
       , $ = layui.jquery
       , form = layui.form;
-  
-  
+
+
   form.on('select(component)', function (item) {
       window.location.href = item.value;
   });
-  
+
   layui.code({
       elem: 'pre' //默认值为.layui-code
       , title: 'ThinkPHP 5'
       , encode: true
       , about: false
   });
-  
+
   //显示当前tab
   if (location.hash) {
       element.tabChange('doc', location.hash.replace(/^#/, ''));
@@ -60,13 +62,33 @@ layui.use(['element', 'layer', 'form', 'code'], function () {
   });
   form.on('select(tabVersion)', function (e) {
       window.location.href = "/doc/document?name=explain&version=" + e.value
-      });
+  });
   
   $('.showK').click(function(){
     var k = $(this).attr('val');
     console.info(k);
+    
+    var tmpK = $('.show' + k);
+    
+    $('.show0').hide();
+    tmpK.show();
+    
+    
+    $('.showK').removeClass('on');
+    $('.showK'+k).addClass('on');
+    
+    
   });
-        
+  
+  var tmpK = {$theShowK};
+  if(tmpK > 0){
+    tmpK = $('.show' + tmpK);
+    tmpK.show();
+    
+    
+  }
+  
+  
 });
 </script>
 {block name='js'}

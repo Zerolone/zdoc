@@ -1,11 +1,5 @@
 <?php
-/** .-------------------------------------------------------------------
- * | Author: OkCoder <1046512080@qq.com>
- * | Git: https://www.gitee.com/okcoder
- * | Copyright (c) 2012-2019, www.i5920.com. All Rights Reserved.
- * '-------------------------------------------------------------------*/
-
-namespace OkCoder\ApiDoc;
+namespace Zerolone\ZDoc;
 
 use think\Request;
 use think\View;
@@ -56,9 +50,9 @@ class Controller
         $this->assets_path = __DIR__ . DS . 'assets' . DS;
         $this->view_path   = __DIR__ . DS . 'view' . DS;
         if (!defined('THINK_VERSION')) {
-            $this->doc = new Doc((array)\think\facade\Config::pull('okcoder_doc'));
+            $this->doc = new Doc((array)\think\facade\Config::pull('zdoc'));
         } else {
-            $this->doc = new Doc((array)\think\Config::get('okcoder_doc'));
+            $this->doc = new Doc((array)\think\Config::get('zdoc'));
         }
 
         $config     = [
@@ -91,7 +85,8 @@ class Controller
         // 版本号
         $this->view->assign('versions', $this->doc->__get('controller'));
 
-
+        //var_dump($this->doc->get_api_list(input('version', 0, 'intval')));
+        
         // 左侧菜单
         $this->view->assign('menu', $this->doc->get_api_list(input('version', 0, 'intval')));
     }
@@ -124,6 +119,9 @@ class Controller
      */
     protected function template($name, $vars = [], $config = [])
     {
+      //var_dump($name,$vars, $config);
+      
+      
         $vars = array_merge(['root' => $this->root], $vars);
         return $this->view->fetch($name, $vars, $config);
     }

@@ -1,11 +1,5 @@
 <?php
-/** .-------------------------------------------------------------------
- * | Author: OkCoder <1046512080@qq.com>
- * | Git: https://www.gitee.com/okcoder
- * | Copyright (c) 2012-2019, www.i5920.com. All Rights Reserved.
- * '-------------------------------------------------------------------*/
-
-namespace OkCoder\ApiDoc;
+namespace Zerolone\ZDoc;
 
 
 class Parser

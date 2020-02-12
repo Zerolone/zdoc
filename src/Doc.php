@@ -1,10 +1,5 @@
 <?php
-/** .-------------------------------------------------------------------
- * | Author: OkCoder <1046512080@qq.com>
- * | Git: https://www.gitee.com/okcoder
- * | Copyright (c) 2012-2019, www.i5920.com. All Rights Reserved.
- * '-------------------------------------------------------------------*/
-namespace OkCoder\ApiDoc;
+namespace Zerolone\ZDoc;
 
 class Doc
 {
@@ -105,8 +100,10 @@ class Doc
 
 
     # 获取接口列表
-    public function get_api_list($version = 0)
-    {
+    public function get_api_list($version = 0){
+      dump($this->config);
+      
+      
         $controller = $this->config['controller'][$version]['list'];
         $list = [];
         foreach ($controller as $k => $class) {

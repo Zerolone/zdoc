@@ -3,11 +3,38 @@
 
 {/block}
 
-
 {block name='content'}
+
+        <div class="layui-card layui-form ">
+            <select lay-search="" lay-filter="component">
+                <option value="">搜索接口或选择模块</option>
+
+                {if(isset($document))}
+                <option value="" disabled>序言</option>
+                {volist name="document" id='v'}
+                <option value="/doc/document?name={$key}"
+                <?php echo (input('name') == $key) ? 'selected' : ''; ?>
+                >├──{$v.name}</option>
+                {/volist}
+                {/if}
+
+                {volist name='menu' id='v'}
+                <option value="/doc/module?name={$v.class}"
+                <?php echo (input('name') == $v['class']) ? 'selected' : ''; ?>>{$v.title}</option>
+                {if(isset($v.action))}
+                {volist name='v.action' id='m'}
+                <option value="/doc/action?name={$m.href}"
+                <?php echo (input('name') == $m['href']) ? 'selected' : ''; ?> >├──{$m.title}</option>
+                {/volist}
+                {/if}
+                {/volist}
+            </select>
+        </div>
+
 
 
 <div class="layui-card" id="view_tpl1"></div>
+
 
 <div class="layui-card">
     <div class="layui-tab layui-tab-brief" lay-filter="doc">

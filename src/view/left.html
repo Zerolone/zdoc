@@ -7,9 +7,10 @@
         </select>
     </div>
     <ul class="layui-tree">
+{assign name="theShowK" value="0" /}
 
         {if(isset($document))}
-        <li><h2>序言 111</h2></li>
+        <li><h2>序言</h2></li>
         {volist name="document" id='v'}
         <li class="site-tree-noicon <?php echo (input('name') == $key) ? 'on' : ''; ?>">
             <a href="/doc/document?name={$key}">
@@ -18,15 +19,21 @@
         </li>
         {/volist}
         {/if}
-        {volist name='menu' id='v'}
+        {volist name='menu' id='v' key="k"}
         <li>
-            <h2 class="<?php echo (input('name') == $v['class']) ? 'on' : ''; ?>">
+            <h2 class="<?php echo (input('name') == $v['class']) ? 'on' : ''; ?> showK showK{$k}" val="{$k}" >
                 <a href="/doc/module?name={$v.class}" style="display:initial;font-size: inherit">{$v.title}</a>
             </h2>
+            
         </li>
         {if(isset($v.action))}
         {volist name="v.action" id='m'}
-        <li class="site-tree-noicon <?php echo (input('name') == $m['href']) ? 'on' : ''; ?>">
+        
+        {if input('name') == $m['href']}
+          {assign name="theShowK" value="$k" /}
+        {/if}
+        
+        <li <?php echo (input('name') == $v['class']) ? '' : 'style="display:none"'; ?> class="show{$k} show0 site-tree-noicon <?php echo (input('name') == $m['href']) ? 'on' : ''; ?>">
             <a href="/doc/action?name={$m.href}&version={:input('version',0,'intval')}">
                 <em>
                     {if(isset($m.version))}<span class="layui-badge layui-bg-blue">{$m.version}</span>{/if}
@@ -43,3 +50,4 @@
         {/volist}
     </ul>
 </div>
+
