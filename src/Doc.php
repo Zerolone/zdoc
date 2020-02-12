@@ -4,10 +4,6 @@ namespace Zerolone\ZDoc;
 class Doc
 {
     protected $config = [
-        'title' => 'Api接口文档',
-        'version' => '1.0.0',
-        'copyright' => 'Powered By SUCAILONG.COM',
-        'password' => '',
         'document' => [
             "explain" => [
                 'name' => '说明',
@@ -101,9 +97,6 @@ class Doc
 
     # 获取接口列表
     public function get_api_list($version = 0){
-      dump($this->config);
-      
-      
         $controller = $this->config['controller'][$version]['list'];
         $list = [];
         foreach ($controller as $k => $class) {
