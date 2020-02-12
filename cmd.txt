@@ -7,3 +7,10 @@ git push
 
 git pull origin master
 git push -u origin push
+
+#修改composer为官方
+composer config -g --unset repos.packagist
+
+#改用aliyun
+composer config -g repo.packagist composer https://mirrors.aliyun.com/composer/
+
