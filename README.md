@@ -1,6 +1,6 @@
 # TP5接口文档管理
 
-ThinkPHP5 API自动生成 layui美化
+ThinkPHP5 API自动生成 layui美化 基于okcoder_doc
 
 ## 使用方法
 #### 安装扩展
@@ -81,7 +81,7 @@ class Demo extends Controller{
      public function index(){}
 }
 ```
-修改okcoder_doc.php 配置文件
+修改zdoc.php 配置文件
 
 ```
 'controller' => [
@@ -119,7 +119,7 @@ class Demo extends Controller{
      public function index(){}
 }
 ```
-修改okcoder_doc.php 配置文件
+修改zdoc.php 配置文件
 
 ```
     'controller' => [
