@@ -22,7 +22,10 @@
         {volist name='menu' id='v' key="k"}
         <li>
             <h2 class="<?php echo (input('name') == $v['class']) ? 'on' : ''; ?> showK showK{$k}" val="{$k}" >
+                <!--
                 <a href="/doc/module?name={$v.class}" style="display:initial;font-size: inherit">{$v.title}</a>
+                -->
+                {$v.title}
             </h2>
             
         </li>
